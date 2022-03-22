@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css"
+		/>
+		<title>SNPC</title>
+	</head>
+	<body>
+		<div class="contact" id="contact">
+			<h1 class="heading">Contáctanos</h1>
+			<form
+				action=""
+				id="contact-form"
+				name="formulario"
+				onsubmit="validarCampos(); return false;"
+			>
+				<div id="mensajeExito">
+					Enviado exitosamente
+				</div>
+
+				<label for="nombre">Nombre:</label>
+				<input
+					type="text"
+					name="nombre"
+					placeholder="Nombre"
+					class="box"
+					oninput="quitarError_nombre()"
+				/>
+				<div id="mensajeError_nombre">
+					Debe escribir su nombre.
+				</div>
+
+				<label for="apellido">Apellido:</label>
+				<input
+					type="text"
+					name="apellido"
+					id="apellido"
+					placeholder="Apellido"
+					class="box"
+					oninput="quitarError_apellido()"
+				/>
+				<div id="mensajeError_apellido">
+					Debe escribir su apellido.
+				</div>
+
+				<label for="dni">DNI:</label>
+				<input
+					type="text"
+					name="dni"
+					placeholder="DNI"
+					class="box"
+					maxlength="8"
+					oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); quitarError_dni()"
+				/>
+				<div id="mensajeError_dni">
+					Debe escribir su DNI.
+				</div>
+
+				<label for="email">Email:</label>
+				<input
+					type="email"
+					name="email"
+					placeholder="Email"
+					class="box"
+					oninput="quitarError_email()"
+				/>
+				<div id="mensajeError_email">
+					Debe escribir un email.
+				</div>
+
+				<label for="telefono">Teléfono:</label>
+				<input
+					type="text"
+					name="telefono"
+					placeholder="Telefono"
+					class="box"
+					maxlength="13"
+					oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); quitarError_telefono()"
+				/>
+				<div id="mensajeError_telefono">
+					Debe escribir un teléfono.
+				</div>
+
+				<label for="tipo_seguro"
+					>Tipo de seguro:</label
+				>
+				<select
+					class="box"
+					id="tipo_seguro_id"
+					name="tipo_seguro"
+					onchange="getTipoSeguro()"
+					onclick="quitarError_tipoSeguro()"
+				>
+					<option selected disabled>
+						Selecciona el tipo
+					</option>
+					<option value="basico">Basico</option>
+					<option value="intermedio">
+						Intermedio
+					</option>
+					<option value="premium">Premium</option>
+				</select>
+				<div id="mensajeError_tipo_seguro">
+					Debe seleccionar un tipo de seguro.
+				</div>
+				<input
+					type="text"
+					id="valorTipoSeguro"
+					placeholder="$"
+					class="box-precio"
+					readonly
+				/>
+				<div class="form-btn">
+					<input
+						type="submit"
+						value="Enviarrr"
+						name="submit"
+						id="submit"
+						class="btn-submit"
+					/>
+				</div>
+			</form>
+		</div>
+	</body>
+	<script src="js/script.js"></script>
+</html>
